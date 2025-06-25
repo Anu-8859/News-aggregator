@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>News Aggregator</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+  <!-- Auth Section -->
+  <div id="authSection">
+    <h1>🔐 News Aggregator Login</h1>
+    <input type="text" id="name" placeholder="Full Name" />
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <div class="auth-buttons">
+      <button onclick="login()">Login</button>
+      <button onclick="signup()">Signup</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="mainContent" style="display:none;">
+    <h1>📰 News Aggregator</h1>
+    <div id="welcomeMsg"></div>
+    <button id="logoutBtn" onclick="logout()">Logout</button>
+    <button id="toggleTheme">🌙 Dark Mode</button>
+
+    <div class="categories">
+      <button onclick="fetchNews('general')">General</button>
+      <button onclick="fetchNews('business')">Business</button>
+      <button onclick="fetchNews('sports')">Sports</button>
+      <button onclick="fetchNews('technology')">Technology</button>
+      <button onclick="showBookmarks()">🔖 Bookmarks</button>
+    </div>
+
+    <div id="google_translate_element"></div>
+    <div class="news-container" id="newsContainer"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+
+
+
