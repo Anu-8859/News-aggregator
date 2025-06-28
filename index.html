@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>News Aggregator</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+  <div id="authSection" class="auth-card">
+    <div id="loginForm">
+      <h1>🔐 Login</h1>
+      <input type="email" id="loginEmail" placeholder="Email" autocomplete="username" />
+      <p class="error-message" id="loginEmailError"></p>
+      <div class="password-input-container">
+        <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" />
+        <span class="toggle-password" onclick="togglePasswordVisibility('loginPassword')">👁️</span>
+      </div>
+      <p class="error-message" id="loginPasswordError"></p>
+      <button onclick="login()">Login</button>
+      <p class="auth-switch-text">Don't have an account? <a href="#" onclick="toggleAuthMode('signup')">Sign Up</a></p>
+      <a href="#" class="forgot-password-link" onclick="forgotPassword()">Forgot Password?</a>
+      <div class="divider">OR</div>
+      <button class="social-btn google" onclick="signInWithGoogle()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_of_Google__G__Square.svg" alt="Google logo"> Login with Google
+      </button>
+    </div>
+
+    <div id="signupForm" style="display:none;">
+      <h1>🚀 Sign Up</h1>
+      <input type="text" id="signupName" placeholder="Full Name" autocomplete="name" />
+      <p class="error-message" id="signupNameError"></p>
+      <input type="email" id="signupEmail" placeholder="Email" autocomplete="email" />
+      <p class="error-message" id="signupEmailError"></p>
+      <div class="password-input-container">
+        <input type="password" id="signupPassword" placeholder="Password" autocomplete="new-password" />
+        <span class="toggle-password" onclick="togglePasswordVisibility('signupPassword')">👁️</span>
+      </div>
+      <p class="error-message" id="signupPasswordError"></p>
+      <button onclick="signup()">Signup</button>
+      <p class="auth-switch-text">Already have an account? <a href="#" onclick="toggleAuthMode('login')">Login</a></p>
+    </div>
+  </div>
+
+  <div id="mainContent" style="display:none;">
+    <header class="main-header">
+      <div class="header-left">
+        <h1>📰 News Aggregator</h1>
+        <div id="welcomeMsg"></div>
+      </div>
+      <div class="header-right">
+        <input type="text" id="searchInput" placeholder="Search news..." />
+        <button onclick="searchNews()">🔍 Search</button>
+        <button id="toggleTheme">🌙 Dark Mode</button>
+        <button id="logoutBtn" onclick="logout()">Logout</button>
+      </div>
+    </header>
+
+    <div class="categories">
+      <button onclick="fetchNews('general')">General</button>
+      <button onclick="fetchNews('business')">Business</button>
+      <button onclick="fetchNews('sports')">Sports</button>
+      <button onclick="fetchNews('technology')">Technology</button>
+      <button onclick="fetchNews('health')">Health</button>
+      <button onclick="fetchNews('science')">Science</button>
+      <button onclick="fetchNews('entertainment')">Entertainment</button>
+      <button onclick="showBookmarks()">🔖 Bookmarks</button>
+    </div>
+
+    <div id="google_translate_element"></div>
+    <div class="news-container" id="newsContainer"></div>
+    <button id="loadMoreBtn" onclick="loadMoreNews()" style="display: none;">Load More</button>
+  </div>
+
+  <div id="toastContainer"></div>
+
+  <script src="script.js"></script>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+
+
+
