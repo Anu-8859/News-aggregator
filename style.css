@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* General Body & Auth Section Styling */
 body {
   font-family: 'Poppins', sans-serif; /* Using Poppins from Google Fonts */
@@ -509,3 +510,109 @@ body.dark-mode .news-card .fake-news-warning {
 
 
 
+=======
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+input {
+  padding: 10px;
+  margin: 6px;
+  font-size: 14px;
+  width: 220px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 6px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.auth-buttons button {
+  background-color: #007bff;
+  color: white;
+}
+
+.auth-buttons button:hover {
+  background-color: #0056b3;
+}
+
+#logoutBtn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.categories button {
+  background-color: #009688;
+  color: white;
+}
+
+.categories button:hover {
+  background-color: #00796b;
+  transform: scale(1.05);
+}
+
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.news-card {
+  width: 300px;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.news-card h3 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.news-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.dark-mode {
+  background: #1e1e1e;
+  color: white;
+}
+
+.dark-mode .news-card {
+  background: #333;
+  color: white;
+}
+
+
+
+
+
+>>>>>>> 8d9256196d7a95de0369548b652599bae46a2e21
